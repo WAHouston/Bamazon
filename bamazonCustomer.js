@@ -20,11 +20,11 @@ function listProducts() {
     connection.query("SELECT * FROM products", function(err, res){
         if (err) throw err
         console.table(res)
-        inquire()
+        inquire(res.length)
     })
 }
 
-function inquire(){
+function inquire(numOfItems){
     inquirer
         .prompt([
             {
@@ -32,7 +32,7 @@ function inquire(){
                 message: "What is the ID number of the product you wish to purchase?",
                 name: "productID",
                 validate: function(input){
-                    if (isNaN(input)){
+                    if (isNaN(input) || input < 1 || input > numOfItems){
                         return "That is not a valid product ID."
                     } else {
                         return true
@@ -53,7 +53,8 @@ function inquire(){
             }
         ])
         .then(function(res){
-            
+        
         })
 
 }
+
