@@ -1,0 +1,3 @@
+
+INSERT INTO products(product_name, department_name, price, stock_quantity)
+VALUES ("Risk", "Board Games", 34.99, 3), ("Fallout 4", "Video Games", 39.99, 5), ("5th Edition Player's Handbook", "Pen and Paper Games", 44.99, 5), ("MTG Zendikar Booster", "Trading Card Games", 16.99, 36), ("Xia, Legends of a Drift System", "Board Games", 79.99, 1), ("Horizon: Zero Dawn", "Video Games", 39.99, 5), ("Xanathar's Guide to Everything", "Pen and Paper Games", 44.99, 3), ("Fiasco", "Pen and Paper Games", 14.99, 4), ("MTG Return to Ravnica Booster Pack", "Trading Card Games", 7.99, 18), ("Sushi Go!", "Board Games", 9.99, 5)
