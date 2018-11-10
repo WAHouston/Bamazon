@@ -73,6 +73,6 @@ function transactionCheck(id, quantity){
 
 function completeTransaction(id, quantity, stock, price){
     connection.query('UPDATE products SET stock_quantity = ? WHERE item_id = ?', [(stock - quantity), id])
-    console.log("\nYour total is: $" + (quantity * price) + "\nTransaction Complete!")
-    listProducts()
+    console.log("\nYour total is: $" + (quantity * price).toFixed(2) + "\nTransaction Complete!")
+    connection.end()
 }
