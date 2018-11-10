@@ -103,5 +103,58 @@ function addToInventory() {
 }
 
 function addNewItem() {
-    
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "product",
+                message: "What is the name of the product you would like to add?"
+            },
+            {
+                type: "input",
+                name: "department",
+                message: "Which department does this product belong to?"
+            },
+            {
+                type: "input",
+                name: "price",
+                message: "What is the price of this product?",
+                validate: function(input){
+                    if (isNaN(input) || input <= 0){
+                        return "\nThat is not a valid price."
+                    } else {
+                        return true
+                    }
+                }
+            },
+            {
+                type: "input",
+                name: "quantity",
+                message: "How many would you like to add?",
+                validate: function(input){
+                    if (isNaN(input) || input <= 0){
+                        return "\nThat is not a valid price."
+                    } else {
+                        return true
+                    }
+                }
+            }
+        ])
+        .then(function(res){
+            let newProduct = {
+                product_name: res.product,
+                department_name: res.department,
+                price: res.price,
+                stock_quantity: res.quantity
+            }
+            connection.query('INSERT INTO products SET ?', newProduct, function (err, res){
+                if (err) throw err
+                connection.query('SELECT item_id, product_name, price, stock_quantity FROM products', function (err, res){
+                    if (err) throw err
+                    console.log("\nProduct added!\n")
+                    console.table(res)
+                    connection.end()
+                })
+            })
+        })
 }
