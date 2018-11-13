@@ -72,6 +72,10 @@
 
 ![Bamazon Add New Product Price (Manager App)](images/mnewprice)
 
+* If the user enters an invalid price, a message will be displayed telling the user that the price was invalid and the user will be able to try a different price.
+
+![Bamazon Add New Product Price Invalid](images/mnewpriceinvalid)
+
 * Once the price is entered, the user will be prompted to enter the quantity of the product.
 
 ![Bamazon Add New Product Quantity (Manager App)](images/mnewquantity)
