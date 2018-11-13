@@ -54,6 +54,7 @@ function viewLowInventory() {
         if (err) throw err
         console.log()
         console.table(res)
+        connection.end()
     })
 }
 
